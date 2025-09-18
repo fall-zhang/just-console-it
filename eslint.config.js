@@ -1,0 +1,15 @@
+export default [{
+  "rules": {
+    "no-string-throw": true,
+    "no-unused-expression": true,
+    "no-duplicate-variable": true,
+    "curly": true,
+    "class-name": true,
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "triple-equals": true
+  },
+  "defaultSeverity": "warning"
+}]

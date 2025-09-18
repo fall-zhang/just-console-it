@@ -27,11 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     const selection = editor.selection;
     const text = editor.document.getText(selection);
+    const lineNum = editor.document.getWordRangeAtPosition()
 
     text
       ? vscode.commands.executeCommand('editor.action.insertLineAfter')
         .then(() => {
-          const logToInsert = `console.log('⚡️${text}: ', ${text});`;
+          const logToInsert = `console.log('⚡️ ~ ${text}: ', ${text});`;
           insertText(logToInsert);
         })
       : insertText('console.log();');

@@ -13,11 +13,11 @@ This extension is available for free in the [Visual Studio Code Marketplace](htt
 #### Only activates with .js and .ts files
 
 * Highlight anything in the editor
-* Press `Cmd+Shift+L` (Mac), or `Ctrl+Shift+L` (Windows)
+* Press `Cmd+alt+L` (Mac), or `Ctrl+alt+L` (Windows)
 * The output (on a new line) will be: `console.log('variable: ', variable)`;
 
 #### Keyboard Shortcut
-By default the keyboard shortcut is `Cmd+Shift+L` or `Ctrl+Shift+L`
+By default the keyboard shortcut is `Cmd+alt+L` or `Ctrl+alt+L`
 If this shortcut interferes with another extension or system wide Shortcut, you may change it in the `Keyboard Shortcuts Setting`.
 
 Press `Cmd+P` or `Ctrl+P` and type in `Open Keyboard Shortcuts`.
