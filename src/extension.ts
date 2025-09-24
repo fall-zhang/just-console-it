@@ -4,7 +4,6 @@ import * as vscode from 'vscode';
 
 const insertText = (text: string) => {
   const editor = vscode.window.activeTextEditor;
-  
 
   if (!editor) {
     vscode.window.showErrorMessage('Can\'t insert console.log because no document is open');
@@ -46,10 +45,11 @@ export function activate(context: vscode.ExtensionContext) {
       .then(() => {
         let charText = ''
         textInfoList.forEach((info, index) => {
-          if (index === 0) {
-            charText = info.text
+          if (index !== 0) {
+            charText = charText + ', ' + info.text
+            return
           }
-          charText = charText + ', ' + info.text
+          charText = info.text
         })
         let outputIcon = textInfoList.length > 1 ? '✨' : '⚡️'
         const logToInsert = `console.log('${outputIcon} line:${selectLineNum} ~ ${charText}: ', ${charText});`;
