@@ -1,8 +1,10 @@
 'use strict';
+
 import * as vscode from 'vscode';
 
 const insertText = (text: string) => {
   const editor = vscode.window.activeTextEditor;
+  
 
   if (!editor) {
     vscode.window.showErrorMessage('Can\'t insert console.log because no document is open');
@@ -25,17 +27,34 @@ export function activate(context: vscode.ExtensionContext) {
     const editor = vscode.window.activeTextEditor;
     if (!editor) { return; }
 
-    const selection = editor.selection;
-    const text = editor.document.getText(selection);
-    const lineNum = editor.document.getWordRangeAtPosition()
+    const selectionList = editor.selections
+    if (selectionList.length < 1) {
+      insertText('console.log();');
+      return
+    }
+    const selectLineNum = editor.selection.active.line + 1
 
-    text
-      ? vscode.commands.executeCommand('editor.action.insertLineAfter')
-        .then(() => {
-          const logToInsert = `console.log('⚡️ ~ ${text}: ', ${text});`;
-          insertText(logToInsert);
+    const textInfoList = selectionList.map(item => {
+      const info = {
+        line: item.active.line,
+        text: editor.document.getText(item)
+      }
+      return info
+    });
+
+    vscode.commands.executeCommand('editor.action.insertLineAfter')
+      .then(() => {
+        let charText = ''
+        textInfoList.forEach((info, index) => {
+          if (index === 0) {
+            charText = info.text
+          }
+          charText = charText + ', ' + info.text
         })
-      : insertText('console.log();');
+        let outputIcon = textInfoList.length > 1 ? '✨' : '⚡️'
+        const logToInsert = `console.log('${outputIcon} line:${selectLineNum} ~ ${charText}: ', ${charText});`;
+        insertText(logToInsert);
+      })
   });
 
   context.subscriptions.push(disposable);
