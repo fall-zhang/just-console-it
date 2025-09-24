@@ -10,7 +10,7 @@ This extension is available for free in the [Visual Studio Code Marketplace](htt
 
 ## How to use
 
-#### Only activates with .js and .ts files
+### For now Only activates with .js,.ts,jsx,tsx files
 
 * Highlight anything in the editor
 * Press `Cmd+alt+L` (Mac), or `Ctrl+alt+L` (Windows)
