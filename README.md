@@ -1,23 +1,17 @@
-# JavaScript Quick Console
+# Just Console It
 
 Quickly print out log messages
-
-![](images/demo.gif)
-
-## Installing
-
-This extension is available for free in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AhadCove.js-quick-console)
 
 ## How to use
 
 ### For now Only activates with .js,.ts,jsx,tsx files
 
-* Highlight anything in the editor
-* Press `Cmd+alt+L` (Mac), or `Ctrl+alt+L` (Windows)
-* The output (on a new line) will be: `console.log('variable: ', variable)`;
+- Highlight anything in the editor
+- Press `Cmd+alt+L` (Mac), or `Ctrl+alt+L` (Windows)
+- The output (on a new line) will be: `console.log('⚡️ line:11 ~ variable: ', variable)`;
 
-#### Keyboard Shortcut
-By default the keyboard shortcut is `Cmd+alt+L` or `Ctrl+alt+L`
+### Keyboard Shortcut
+
 If this shortcut interferes with another extension or system wide Shortcut, you may change it in the `Keyboard Shortcuts Setting`.
 
 Press `Cmd+P` or `Ctrl+P` and type in `Open Keyboard Shortcuts`.
